@@ -1,15 +1,19 @@
+from customer import Customer
+from cart import Cart
+
 class Order:
-    def __init__(self,customer,cart):
+    def __init__(self, customer, cart):
         self.customer = customer
         self.cart = cart
         self.total_amount = cart.get_total()
-    
+
     def place_order(self):
         if self.total_amount > 0:
-            print(f"\nSipariş başarıyla oluşturuldu!")
+            print("\nSipariş başarıyla oluşturuldu!")
             print(self.customer)
             print("\nSipariş detayları:")
             self.cart.display_cart()
-            print(f"\n Toplam Tutar: {self.total_amount} TL")
+            print(f"\nToplam Tutar: {self.total_amount} TL")
+            self.cart.clear_cart()
         else:
-            print("\nSebet boş, sipariş oluşturulamadı!")
+            print("\nSepet boş, sipariş oluşturulamadı!")
